@@ -1,0 +1,19 @@
+version: "1"
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+    restart: always
+    ports:
+      - "4444:4444"
+  firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: selenium-firefox
+    volumes:
+      - /dev/shm:/dev/shm
+    restart: on-failure:2
+    ports:
+      - "4445:4444"
+
